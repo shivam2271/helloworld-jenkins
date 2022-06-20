@@ -15,6 +15,13 @@ pipeline{
 
             }
         }
+         stage('SonarQube'){
+        		steps{
+        				bat label: '', script: '''mvn sonar:sonar \
+        				-Dsonar.host.url=http://localhost:9000 \
+        				-Dsonar.login=squ_b89b23e99afd0e03b0a56f6d924b36f377c56334'''
+        			}
+           		}
     stage ('Test Stage') {
 
             steps {
